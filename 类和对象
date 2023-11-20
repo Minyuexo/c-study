@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+#include<iostream>
+//struct和class作用差不多，但struct默认权限是公有，class是私有
+
+//成员属性设置为私有的优点
+	///1.将成员属性设置为私有，可以自己控制读写权限
+	///2.对于写权限，可以检测数据的有效性
+class Person {
+public:
+	void setName(string m_name) {
+		//这里可以对输入的名字设置条件
+		name = m_name;
+
+	}
+	string getName() {
+		return name;
+	}
+	//属性age只有set方法，确保了只写
+	void setAge(int m_age) {
+		age = m_age;
+	}
+	//属性gender只有get方法，确保了只读
+	string getGender() {
+		return gender;
+	}
+private:
+	string name;
+	int age;
+	string gender = "female";
+};
+
+int main() {
+	Person p;
+	p.setName("边伯贤");
+	cout << "姓名为:" << p.getName() << endl;
+  system("pause");
+	return 0;
+
+}
